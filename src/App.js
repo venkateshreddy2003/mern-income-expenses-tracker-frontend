@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AccountDashboard from "./components/Dashbaord/AccountDashboard";
+import AccountDetails from "./components/Dashbaord/AccountDetails";
+import AddAccount from "./components/Forms/AddAccount";
+import AddTransaction from "./components/Forms/AddTransaction";
+import Login from "./components/Forms/Login";
+import Register from "./components/Forms/Register";
+import HomePage from "./components/HomePage/HomePage";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/add-transaction/:id" element={<AddTransaction />} />
+      <Route path="/dashboard" element={<AccountDashboard />} />
+      <Route path="/account-details/:accountID" element={<AccountDetails />} />
+      <Route path="/dashboard/accounts/create" element={<AddAccount />} />
+      <Route path="/add-account" element={<AddAccount />} />
+    </Routes>
   );
 }
 
